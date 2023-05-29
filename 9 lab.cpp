@@ -81,10 +81,46 @@ void zad3()
     cout << strResult;
 }
 
+void zad4()
+{
+    string first, second;
+    bool concurrence = false;
+    int i2 = 0, buffer = 0;
+    cout << "Введите текст в котором будет искааться фрагмент :";
+    cin >> first;
+    cout << "Введите фрагмент который будет искаться в тексте :";
+    cin >> second;
+
+    for (int i = 0; i < first.size(); i++)
+    {
+        if (i2 <= second.size())
+        {
+            if (first[i] == second[i2])
+            {
+                i2++;
+                buffer = i;
+            }
+            else
+            {
+                i2 = 0;
+            }
+        }
+    }
+
+    if (i2 == second.length())
+    {
+        cout << "В тексте был найден фрагмент !, начиная с симовла номер :" << buffer+1-second.length() ;
+    }
+    else
+    {
+        cout << "такого фрагмента в тексте не найдено !";
+    }
+}
+
 int main()
 {
     setlocale(LC_ALL, "ru");
     
-    zad3();
+    zad4();
 
 }
